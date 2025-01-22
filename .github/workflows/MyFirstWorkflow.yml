@@ -24,9 +24,7 @@ jobs:
     needs: first_job
     steps:
     - run: |
-        echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
-        sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g')
-        echo "My Secret is '$sec'."
+        echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}." sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g') echo "My Secret is '$sec'."
 
   Load-Test:
     runs-on: ubuntu-latest
@@ -34,7 +32,5 @@ jobs:
     needs: first_job
     steps:
     - run: |
-        echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
-        sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g')
-        echo "My Secret is '$sec'.
+        echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}." sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g') echo "My Secret is '$sec'.
   
