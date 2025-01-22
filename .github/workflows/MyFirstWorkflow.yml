@@ -17,4 +17,24 @@ jobs:
         uses: actions/checkout@v4.1.0
 
       - run: tree
-    
+  
+  Test:
+    runs-on: ubuntu-latest
+    environment: Test
+    needs: first_job
+    steps:
+    - run: |
+        echo "Hello ${{ WHO_TO_GREET }} from ${{ github.actor }}."
+        sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g')
+        echo "My Secret is '$sec'."
+
+  Load-Test:
+    runs-on: ubuntu-latest
+    environment: Load-Test
+    needs: first_job
+    steps:
+    - run: |
+        echo "Hello ${{ WHO_TO_GREET }} from ${{ github.actor }}."
+        sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g')
+        echo "My Secret is '$sec'.
+  
