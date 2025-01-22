@@ -24,7 +24,7 @@ jobs:
     needs: first_job
     steps:
     - run: |
-        echo "Hello ${{ WHO_TO_GREET }} from ${{ github.actor }}."
+        echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
         sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g')
         echo "My Secret is '$sec'."
 
@@ -34,7 +34,7 @@ jobs:
     needs: first_job
     steps:
     - run: |
-        echo "Hello ${{ WHO_TO_GREET }} from ${{ github.actor }}."
+        echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
         sec=$(echo ${{ secrets.MY_SECRET }}) | sed 's/./& /g')
         echo "My Secret is '$sec'.
   
